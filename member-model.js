@@ -1,9 +1,9 @@
 import { gameListRows, preferredGameRows } from './game-list-source.js?v=20261009-online-source-1';
 import { automaticGameFolders } from './resource-links.js?v=20261009-auto-game-links-1';
 // No Firebase or DOM dependencies: the same model is used by login and sync.
-export const ADMIN_UID = 'xqDN3vaLfufEkz4TZ1omSmGkQ2A2';
+export const ADMIN_UID = 'LpgFSsSX7hbSjb26ESSNK3FszHp2';
 export const ADMIN_USERNAME = 'Rondo';
-export const ADMIN_EMAIL = 'goldbricks168@gmail.com';
+export const ADMIN_EMAIL = 'kjc6328@icloud.com';
 export const PLATFORM_PERMISSION = 'system_all_platforms';
 export const normalizeUsername = value => String(value || '').trim().normalize('NFC').toLowerCase();
 export const isReservedUsername = value => normalizeUsername(value) === ADMIN_EMAIL;
