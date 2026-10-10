@@ -3,7 +3,7 @@ import { memberCredentials, ADMIN_UID, ADMIN_EMAIL, ADMIN_USERNAME } from './mem
 import{getApps,initializeApp}from'https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js';
 import{getFirestore,doc,getDoc,collection,addDoc,getDocs,query,orderBy,limit,serverTimestamp,setDoc,updateDoc,onSnapshot,where,writeBatch}from'https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js';
 import{getAuth,signInWithEmailAndPassword,signOut,setPersistence,browserLocalPersistence,browserSessionPersistence}from'https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js';
-const cfg={apiKey:'AIzaSyB02CLJIYLJgQ2LkMVgYomObyl1kQC84eI',authDomain:'omniplay-op.firebaseapp.com',projectId:'omniplay-op',storageBucket:'omniplay-op.firebasestorage.app',messagingSenderId:'742295844045',appId:'1:742295844045:web:8399ae7bdb21c6a9d12584'};
+const cfg={apiKey:'AIzaSyDvjVz3l4N-HzMedsiEh1RIYDgy-h_lmMc',authDomain:'asset-library-a5c1f.firebaseapp.com',projectId:'asset-library-a5c1f',storageBucket:'asset-library-a5c1f.firebasestorage.app',messagingSenderId:'895347643353',appId:'1:895347643353:web:8ac2d13922755b74083fc8'};
 const SESSION_KEY='omniplay-login-session-v1',CUSTOMER_KEY='omniplay-customer-session',ADMIN_KEY='omniplay-admin-session';
 const LOGIN_USERNAME=ADMIN_EMAIL;
 const esc=(value='')=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
