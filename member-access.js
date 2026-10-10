@@ -250,20 +250,20 @@ export async function transferToRondo(password, db = getFirestore()) {
   if (!snap.exists()) throw new Error('找不到工作區');
   const workspace = snap.data();
   workspace.customerGroups ||= [];
-  let group = (workspace.customerGroups || []).find(item => (item.members || []).some(member => normalizeUsername(member.username) === 'rondo'));
+  let group = (workspace.customerGroups || []).find(item => (item.members || []).some(member => normalizeUsername(member.username) === 'kuo'));
   if (!group) group = (workspace.customerGroups || []).find(item => ['OMNIPLAY', 'OMNIPLAY Support'].includes(item.name));
   if (!group) { group = { id: 'rondo-owner-group', name: 'OMNIPLAY', members: [], allowedPages: [], pageOrder: [] }; workspace.customerGroups.push(group); }
   group.members ||= [];
-  let member = group.members.find(item => normalizeUsername(item.username) === 'rondo');
-  if (!member) { member = { id: 'rondo-owner', name: 'Rondo', username: 'Rondo' }; group.members.push(member); }
+  let member = group.members.find(item => normalizeUsername(item.username) === 'kuo');
+  if (!member) { member = { id: 'kuo-owner', name: 'KUO', username: 'KUO' }; group.members.push(member); }
   member.password = password;
   let syncError;
   try { await setDoc(doc(db, 'omniplay', 'workspace'), workspace); } catch (error) { syncError = error; }
   if (!(await configuration(db))?.credentialsMigrated) throw syncError || new Error('人員密碼尚未完成移轉');
-  const profiles = await listMemberProfiles(db), candidate = profiles.find(item => normalizeUsername(item.username) === 'rondo' && item.enabled);
+  const profiles = await listMemberProfiles(db), candidate = profiles.find(item => normalizeUsername(item.username) === 'kuo' && item.enabled);
   if (!candidate) throw syncError || new Error('Rondo 的登入帳號尚未同步完成');
   const auxiliary = getApps().find(app => app.name === 'member-provisioning'), auth = getAuth(auxiliary);
-  const credentials = await memberCredentials('Rondo', password);
+  const credentials = await memberCredentials('KUO', password);
   try {
     await signInWithEmailAndPassword(auth, credentials.email, credentials.password);
     // A member can read this harmless config only under the new rules. This
@@ -272,7 +272,7 @@ export async function transferToRondo(password, db = getFirestore()) {
     catch { throw new Error('請先發布新版 Firebase 規則，再按「建立 Rondo 並交接」'); }
     if (auth.currentUser.uid !== candidate.uid) throw new Error('Rondo 的登入身分驗證失敗');
     await firebaseSetDoc(doc(db, 'omniplay-security', 'access'), {
-      ownerUid: candidate.uid, ownerUsername: 'Rondo', credentialsMigrated: true,
+      ownerUid: candidate.uid, ownerUsername: 'KUO', credentialsMigrated: true,
     });
   } finally { await signOut(auth); }
   await signOut(getAuth());
