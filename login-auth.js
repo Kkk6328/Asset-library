@@ -1,4 +1,4 @@
-import { accessSession, BOOTSTRAP_UID, BOOTSTRAP_EMAIL } from './access-model.js?v=20261008-groups-1';
+import { accessSession, BOOTSTRAP_UID, BOOTSTRAP_EMAIL } from './access-model.js?v=20261010-name-1';
 import { memberCredentials, ADMIN_UID, ADMIN_EMAIL, ADMIN_USERNAME } from './member-model.js?v=20261008-groups-1';
 import{getApps,initializeApp}from'https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js';
 import{getFirestore,doc,getDoc,collection,addDoc,getDocs,query,orderBy,limit,serverTimestamp,setDoc,updateDoc,onSnapshot,where,writeBatch}from'https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js';
