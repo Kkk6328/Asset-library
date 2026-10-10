@@ -5,7 +5,7 @@ export function accessSession(user, config, profile, view) {
   if (!user) return null;
   const ownerUid = config?.ownerUid || BOOTSTRAP_UID;
   if (user.uid === ownerUid) {
-    if (ownerUid !== BOOTSTRAP_UID && (!profile?.enabled || profile.username?.toLowerCase() !== 'rondo')) return null;
+    if (ownerUid !== BOOTSTRAP_UID && (!profile?.enabled || profile.username?.toLowerCase() !== 'kuo')) return null;
     return { authUid: user.uid, username: ownerUid === BOOTSTRAP_UID ? BOOTSTRAP_EMAIL : OWNER_USERNAME,
       name: ownerUid === BOOTSTRAP_UID ? BOOTSTRAP_EMAIL : OWNER_USERNAME,
       groupId: profile?.groupId || '__admin__', groupName: '最高管理者', internal: true,
