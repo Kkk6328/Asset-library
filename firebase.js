@@ -1,19 +1,16 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js';
-import { getAnalytics } from 'https://www.gstatic.com/firebasejs/12.18.0/firebase-analytics.js';
 import { getFirestore } from 'https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js';
 import { getStorage } from 'https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js';
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyB02CLJIYLJgQ2LkMVgYomObyl1kQC84eI',
-  authDomain: 'omniplay-op.firebaseapp.com',
-  projectId: 'omniplay-op',
-  storageBucket: 'omniplay-op.firebasestorage.app',
-  messagingSenderId: '742295844045',
-  appId: '1:742295844045:web:8399ae7bdb21c6a9d12584',
-  measurementId: 'G-78R4XRF4KT'
+  apiKey: 'AIzaSyDvjVz3l4N-HzMedsiEh1RIYDgy-h_lmMc',
+  authDomain: 'asset-library-a5c1f.firebaseapp.com',
+  projectId: 'asset-library-a5c1f',
+  storageBucket: 'asset-library-a5c1f.firebasestorage.app',
+  messagingSenderId: '895347643353',
+  appId: '1:895347643353:web:8ac2d13922755b74083fc8'
 };
 
 export const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 export const storage = getStorage(app);
-try { getAnalytics(app); } catch (e) { console.info('Analytics unavailable in this browser.', e); }
