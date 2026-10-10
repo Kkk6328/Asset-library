@@ -4,9 +4,9 @@ service cloud.firestore {
     function signedIn() { return request.auth != null; }
     function configExists() { return exists(/databases/$(database)/documents/omniplay-security/access); }
     function config() { return get(/databases/$(database)/documents/omniplay-security/access).data; }
-    function ownerUid() { return configExists() ? config().ownerUid : 'xqDN3vaLfufEkz4TZ1omSmGkQ2A2'; }
+    function ownerUid() { return configExists() ? config().ownerUid : 'LpgFSsSX7hbSjb26ESSNK3FszHp2'; }
     function isOwner() { return signedIn() && request.auth.uid == ownerUid(); }
-    function isRondo() { return isOwner() && ownerUid() != 'xqDN3vaLfufEkz4TZ1omSmGkQ2A2'; }
+    function isRondo() { return isOwner() && ownerUid() != 'LpgFSsSX7hbSjb26ESSNK3FszHp2'; }
     function member() { return get(/databases/$(database)/documents/omniplay-member-access/$(request.auth.uid)).data; }
     function isAdmin() {
       return isOwner() || (signedIn() && configExists() && config().credentialsMigrated == true
@@ -24,9 +24,9 @@ service cloud.firestore {
     }
     function validTransfer() {
       let uid = request.resource.data.ownerUid;
-      return uid == 'xqDN3vaLfufEkz4TZ1omSmGkQ2A2'
+      return uid == 'LpgFSsSX7hbSjb26ESSNK3FszHp2'
         || (get(/databases/$(database)/documents/omniplay-member-access/$(uid)).data.enabled == true
-          && get(/databases/$(database)/documents/omniplay-member-access/$(uid)).data.username.lower() == 'rondo');
+          && get(/databases/$(database)/documents/omniplay-member-access/$(uid)).data.username.lower() == 'kuo');
     }
     match /omniplay-security/access {
       allow get: if signedIn();
@@ -42,7 +42,7 @@ service cloud.firestore {
       allow create, update: if isOwner()
         && request.resource.data.role in ['member', 'admin']
         && (request.resource.data.role == 'member' || isRondo())
-        && (uid != ownerUid() || (request.resource.data.enabled == true && request.resource.data.username.lower() == 'rondo'));
+        && (uid != ownerUid() || (request.resource.data.enabled == true && request.resource.data.username.lower() == 'kuo'));
       allow delete: if isOwner() && uid != ownerUid();
     }
     match /omniplay-member-bindings/{id} { allow read, write: if isOwner(); }
