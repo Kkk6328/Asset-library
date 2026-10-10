@@ -1,5 +1,5 @@
-export const BOOTSTRAP_UID = 'xqDN3vaLfufEkz4TZ1omSmGkQ2A2';
-export const BOOTSTRAP_EMAIL = 'goldbricks168@gmail.com';
+export const BOOTSTRAP_UID = 'LpgFSsSX7hbSjb26ESSNK3FszHp2';
+export const BOOTSTRAP_EMAIL = 'kjc6328@icloud.com';
 export const OWNER_USERNAME = 'Rondo';
 export function accessSession(user, config, profile, view) {
   if (!user) return null;
