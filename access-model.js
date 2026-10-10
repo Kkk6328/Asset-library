@@ -1,6 +1,6 @@
 export const BOOTSTRAP_UID = 'LpgFSsSX7hbSjb26ESSNK3FszHp2';
 export const BOOTSTRAP_EMAIL = 'kjc6328@icloud.com';
-export const OWNER_USERNAME = 'KUO';
+export const OWNER_USERNAME = 'kjc6328';
 export function accessSession(user, config, profile, view) {
   if (!user) return null;
   const ownerUid = config?.ownerUid || BOOTSTRAP_UID;
